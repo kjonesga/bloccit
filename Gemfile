@@ -51,4 +51,7 @@ group :production do
  group :development do
    gem 'sqlite3'
  end
+ group :development do
+  gem "rails-erd"
+end
 
