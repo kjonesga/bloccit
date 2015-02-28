@@ -3,7 +3,9 @@
  # Create Posts
  50.times do
    Post.create!(
+     
      title:  Faker::Lorem.sentence,
+     #title:  "This just a test"
      body:   Faker::Lorem.paragraph
    )
  end
