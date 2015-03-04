@@ -1,0 +1,18 @@
+<h1>All Advertisements</h1>
+<% @advertisements.each do |xxx| %>
+     <div class="media">
+     <div class="media-body">
+       <h4 class="media-heading">
+       	<%= xxx.title%><br>
+       	<%= xxx.copy%>
+       	<p>
+       	<p>	
+
+       	<%= "The price is as follows:  #{xxx.price}" %>
+       	<hr>
+
+         
+       </h4>
+     </div>
+   </div>
+<% end %>

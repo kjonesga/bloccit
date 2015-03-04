@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+   
   def index
   	  @posts = Post.all
+      @array = ["hi mom"]
   end
 
   def show
@@ -12,4 +14,6 @@ class PostsController < ApplicationController
 
   def edit
   end
+
+
 end

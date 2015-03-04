@@ -1,21 +1,24 @@
  require 'faker'
  
  # Create Posts
- 50.times do
+ 1.times do
    Post.create!(
      
-     title:  Faker::Lorem.sentence,
-     #title:  "This just a test"
+     #title:  Faker::Lorem.sentence,
+     title:  "This just an advertisement for Bloc!!!",
      body:   Faker::Lorem.paragraph
    )
  end
  posts = Post.all
- 
+
+
+
  # Create Comments
- 100.times do
+ 1.times do
    Comment.create!(
      post: posts.sample,
-     body: Faker::Lorem.paragraph
+     #body: Faker::Lorem.paragraph
+     body: "The Unique comment goes here!!!!"
    )
  end
  
