@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-   
+before_action :flash_attack 
   def index
   	  @posts = Post.all
       @array = ["hi mom"]
@@ -38,6 +38,7 @@ class PostsController < ApplicationController
        render :edit
      end
    end
+
 
 
 end
