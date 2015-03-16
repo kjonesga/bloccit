@@ -1,0 +1,22 @@
+class ProductsController
+	def index
+		@products = []
+		
+	end
+end
+
+class Product
+	:scope actives, where(active:true)
+end
+
+class ProductPolicy < PunditApplicationPolicy
+	class Scope < PunditScope
+		def resolve
+			if @user.admin?
+				scope.all
+			else
+				scope.actives
+			end
+		end
+	end
+end

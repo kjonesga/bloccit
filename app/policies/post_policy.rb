@@ -1,4 +1,9 @@
  class PostPolicy < ApplicationPolicy
+   def index?
+      true
+    end
+
+
    class Scope
         attr_reader :user, :scope 
 
@@ -18,8 +23,6 @@
 
    end
   
-    def index?
-      true
-    end
+    
  
  end

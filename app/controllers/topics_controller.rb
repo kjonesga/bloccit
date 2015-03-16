@@ -6,13 +6,13 @@ class TopicsController < ApplicationController
 
   def new
   	@topic = Topic.new
-  	authorize = @topic
+  	authorize @topic
   end
 
   def show
-  	@topic = Topic.find(params[:id])
-  	  @posts = @topic.posts
-  	authorize @topic
+    @topic = Topic.find(params[:id])
+     @posts = @topic.posts
+    authorize @topic
   end
 
   def edit
