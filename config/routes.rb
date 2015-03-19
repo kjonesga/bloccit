@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'summaries/create'
+
+  get 'summaries/show'
+
   devise_for :users
   resources :topics do
-    resources :posts, except: [:index]
+    resources :posts, except: [:index] do
+      resource :summaries
+      # topics/1/posts/1/summary get: index.html.erb
+      # topics/1/posts/1/summary/new get: new.h.e
+      # topics/1/posts/1/summary post: create
+  
+    end
   end
    
 
