@@ -18,11 +18,21 @@ class PostsController < ApplicationController
   end
      def create
         @topic = Topic.find(params[:topic_id])
-     @post = current_user.posts.build(params.require(:post).permit(:title, :body))
-     authorize @post
-     if @post.save
+
+        #@post = current_user.posts.build(params.require(:post).permit(:title, :body))
+        # 1. we worked directly from the resource relevant to this controller
+        @post_a = Post.new(params.require(:post).permit(:title, :body))
+
+        # 2. we assigned the things that relate to the post here, user and topic
+        @post_a.user = current_user
+        @post_a.topic = @topic
+        
+        authorize @post_a
+
+        
+     if @post_a.save
        flash[:notice] = "Post was saved."
-       redirect_to @post
+       redirect_to topic_post_path(@topic, @post_a)
      else
        flash[:error] = "There was an error saving the post. Please try again."
        render :new
