@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
 	has_many :comments
 	belongs_to :user
+	   mount_uploader :images, AvatarUploader
 	   belongs_to :topic
 	has_one :summary   
 	#default_scope { order('created_at DESC') }
@@ -11,6 +12,10 @@ class Post < ActiveRecord::Base
 	  validates :body, length: {minimum: 20}, presence: true
 	  validates :topic, presence: true
 	  validates :user, presence: true
+
+	  def post_params
+	  	params.require(:post).permit(:image)
+	  end
 end
 
 
