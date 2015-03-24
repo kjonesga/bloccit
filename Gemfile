@@ -30,7 +30,9 @@ gem 'pundit'
 gem 'figaro'
 gem 'hirb'
 gem 'redcarpet'
-
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
