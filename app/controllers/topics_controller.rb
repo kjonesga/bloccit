@@ -1,7 +1,17 @@
 class TopicsController < ApplicationController
+  #include Paginate
+
   def index
-    @topics = Topic.paginate(page: params[:page], per_page: 10)
+    #@topics = Topic.paginate(page: params[:page], per_page: 10)
+    #@topics = Topic.all.limit(10).offset(params[:page].to_i * 10)
+    @topics = paginate(Topic.all, 3, params[:page].to_i)
+    #https://www.bloc.io/users/kendric-jones-2/checkpoints/316?page=1&page_offset=10
+
   	authorize = @topics
+  end
+
+  def paginate(models, per_page, page)
+    models.limit(per_page).offset(page * per_page)
   end
 
   def new
@@ -42,3 +52,5 @@ class TopicsController < ApplicationController
      end
    end
 end
+
+

@@ -22,3 +22,11 @@ def markdown_body(markdown)
     redcarpet = Redcarpet::Markdown.new(renderer, extensions)
     (redcarpet.render markdown).html_safe
 end
+
+def pagination_links(path, total, per_page, current_page)
+  links = "<ul>"
+  page_index = 3
+  links += "<li><a href=#{path}?page=#{page_index}>#{page_index}</a></li>"
+  links += "</ul>"
+  links.html_safe
+end

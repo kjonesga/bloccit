@@ -14,11 +14,12 @@
         </div>
       </div>
     <% end %>
-       <%= will_paginate @topics %>
+    <%= pagination_links(topics_path, Topic.all.count, params[:per_page], params[:page]) %>
   </div>
   <div class="col-md-4">
     <% if policy(Topic.new).create? %>
       <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
     <% end %>
+
   </div>
 </div>
