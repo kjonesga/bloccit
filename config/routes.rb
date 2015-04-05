@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'comments/create'
+
   get 'summaries/create'
 
   get 'summaries/show'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
     resources :users, only: [:update]
   resources :topics do
     resources :posts do
+      resources :comments, only: [:create]
       resource :summaries
     end
   end
