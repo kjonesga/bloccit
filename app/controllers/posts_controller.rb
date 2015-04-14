@@ -9,11 +9,14 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
        @topic = Topic.find(params[:topic_id])
+       @comment = Comment.new
+       @comment.post = @post
   end
 
   def new
        @topic = Topic.find(params[:topic_id])
     @post = Post.new
+
       authorize @post
   end
      def create
@@ -21,7 +24,9 @@ class PostsController < ApplicationController
 
         #@post = current_user.posts.build(params.require(:post).permit(:title, :body))
         # 1. we worked directly from the resource relevant to this controller
+    
         @post_a = Post.new(params.require(:post).permit(:title, :body))
+
 
         # 2. we assigned the things that relate to the post here, user and topic
         @post_a.user = current_user

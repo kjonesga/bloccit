@@ -1,0 +1,10 @@
+/topics/:topic_id/posts
+/topics/:topic_id/posts/:post_id
+
+/topics/:topic_id/posts/:post_id/comments [create]
+|
+|
+|
+/topics/:topic_id/posts
+/posts/:post_id
+/posts/:post_id/comments [create]

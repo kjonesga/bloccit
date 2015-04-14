@@ -1,0 +1,1 @@
+<%= form_tag(topic_post_comments_path(@topic, @post), method: "post") do %>

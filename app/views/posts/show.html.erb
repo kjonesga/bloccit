@@ -13,6 +13,12 @@
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
+            <p> 
+                               <!--Modify action to point to Comments#create -->
+     <%= form_for @comment, :url => { controller: "Comments", :action => "create" }, :html => { :method => :put } do |f| %>
+        <br> 
+        Enter Comment Here:<%= f.text_field :body %>
+        <%= f.submit "Create" %>
+    <% end %>    
   </div>
-</div>
-
+</div>  

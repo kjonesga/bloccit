@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :topics do
     resources :posts do
       resource :summaries
+      resources :comments, only: [:create]
     end
   end
    
