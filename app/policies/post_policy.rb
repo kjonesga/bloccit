@@ -3,7 +3,10 @@
       true
     end
 
-
+    def destroy?
+          user.present? && (record.user == user || user.admin? || user.moderator?)
+    end
+    
    class Scope
         attr_reader :user, :scope 
 
@@ -18,11 +21,12 @@
 
         def show?
             user.present?  && (record.user == user || user.admin?)
-
         end
 
+        
+
    end
-  
+   
     
  
  end

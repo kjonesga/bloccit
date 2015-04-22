@@ -13,12 +13,18 @@
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
-            <p> 
-                               <!--Modify action to point to Comments#create -->
-     <%= form_for @comment, :url => { controller: "Comments", :action => "create" }, :html => { :method => :put } do |f| %>
-        <br> 
-        Enter Comment Here:<%= f.text_field :body %>
-        <%= f.submit "Create" %>
-    <% end %>    
+    <% if policy(@post).destroy? %>
+       <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this post?' } %>
+     <% end %>
+
+  </div>
+            
+
+  <div class="col-md-5"> 
+      <br />
+      <br />
+      <br />
+      Comments:
+      <%= render partial: "comment", collection: @comments_a %>
   </div>
 </div>  

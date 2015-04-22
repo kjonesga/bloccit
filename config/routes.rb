@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   devise_for :users
     resources :users, only: [:update]
   resources :topics do
-    resources :posts do
+    resources :posts do 
+      resources :comments, only: [:create, :destroy]
       resource :summaries
-      resources :comments, only: [:create]
+      
     end
   end
    

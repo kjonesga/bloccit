@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	has_many :comments
+	has_many :comments, dependent: :destroy
 	belongs_to :user
 	   mount_uploader :images, AvatarUploader
 	   belongs_to :topic
@@ -20,3 +20,4 @@ end
 
 
 	#scope :ordered_by_field, -> (field) { order("#{field} DESC") }
+
