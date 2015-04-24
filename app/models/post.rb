@@ -1,9 +1,11 @@
 class Post < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
+	has_one :summary
 	belongs_to :user
-	   mount_uploader :images, AvatarUploader
-	   belongs_to :topic
-	has_one :summary   
+	belongs_to :topic
+
+	mount_uploader :images, AvatarUploader
+
 	#default_scope { order('created_at DESC') }
 	scope :ordered_by_title, -> { order(title: :desc) }
 	scope :ordered_by_reverse_created_at, -> {order(created_at: :desc)}

@@ -26,8 +26,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+      
       @topic = Topic.find(params[:topic_id])
-      @post = @topic.post.find(params[:post_id])
+      @post = Post.find(params[:post_id])
+      # both the above and below will work
+      @post = Post.find(params[:post_id])
+      @topic = @post.topic
+      @comments = @post.comments
+
       @comment = @post.comments.find(params[:id])
 
       authorize @comment
@@ -36,7 +42,7 @@ class CommentsController < ApplicationController
         redirect_to [@topic, @post]
       else
         flash[:error] = "Comment couldn't be deleted. Try Again!"
-        redirect_to [@topic, @post]
+        redirect_to [@topic, @post] #was @post
       end
   end
 end
