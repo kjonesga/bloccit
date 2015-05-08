@@ -1,0 +1,4 @@
+topic_post_up_vote_path(post)
+Oh, okay, my first argument is a topic (topic_id), my second argument, oh wait, there is none (missing post_id)
+
+topic_post_up_vote_path(topic, post)
